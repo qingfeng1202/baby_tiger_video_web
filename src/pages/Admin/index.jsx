@@ -2,6 +2,8 @@ import { FileOutlined, PieChartOutlined, UserOutlined, DesktopOutlined, TeamOutl
 import { Breadcrumb, Layout, Menu } from 'antd';
 import { useState } from 'react';
 
+import SiderMenu from '../../components/SiderMenu';
+
 import './index.less'
 
 const { Header, Content, Footer, Sider } = Layout;
@@ -41,14 +43,9 @@ const Admin = () => {
             </Header>
 
             <Layout className='sider_content_wrapper'>
-                <Sider className='sider_wrapper'
-                    collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}
-                    trigger={<SiderTrigger collapsed={collapsed}/>} width={208} collapsedWidth={48}
-                >
-                    <Menu className='menu' defaultSelectedKeys={['1']} mode="inline" items={items} />
-                </Sider>
+                <SiderMenu items={items}/>
 
-                <Layout className='content_wrapper'>
+                <Layout className='content_footer_wrapper'>
                     <Content>
                         <Breadcrumb
                             style={{
@@ -68,16 +65,12 @@ const Admin = () => {
                             Bill is a cat.
                         </div>
 
-                        
+
                     </Content>
 
-                    <Footer
-                            style={{
-                                textAlign: 'center',
-                            }}
-                        >
-                            Ant Design ©2018 Created by Ant UED
-                        </Footer>
+                    <Footer className="footer_wrapper">
+                        Ant Design ©2018 Created by Ant UED
+                    </Footer>
                 </Layout>
             </Layout>
         </Layout>
@@ -86,12 +79,12 @@ const Admin = () => {
 
 const SiderTrigger = (props) => {
     const items = [
-        { key: 'item-1', icon: props.collapsed ? <MenuUnfoldOutlined/> : <MenuFoldOutlined/> }
+        { key: 'item-1', icon: props.collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined /> }
     ];
 
     return (
         <div>
-            <Menu items={items} selectable={false} style={{"width": "100%"}}/>
+            <Menu items={items} selectable={false} style={{ "width": "100%" }} />
         </div>
     )
 }
