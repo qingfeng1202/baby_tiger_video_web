@@ -34,7 +34,7 @@ const Admin = () => {
             <Header className="header_wrapper">
                 <div className="logo_wrapper">
                     <a>
-                        <img className='logo_img' src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg" alt="logo" />
+                        <img src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg" alt="logo" />
                         <h1>Ant Design Pro</h1>
                     </a>
                 </div>
@@ -43,37 +43,42 @@ const Admin = () => {
             <Layout className='sider_content_wrapper'>
                 <Sider className='sider_wrapper'
                     collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}
-                    trigger={<SiderTrigger collapsed={collapsed}/>} width={208}
+                    trigger={<SiderTrigger collapsed={collapsed}/>} width={208} collapsedWidth={48}
                 >
                     <Menu className='menu' defaultSelectedKeys={['1']} mode="inline" items={items} />
                 </Sider>
-                <Content className='content_wrapper'>
-                    <Breadcrumb
-                        style={{
-                            margin: '16px 0',
-                        }}
-                    >
-                        <Breadcrumb.Item>User</Breadcrumb.Item>
-                        <Breadcrumb.Item>Bill</Breadcrumb.Item>
-                    </Breadcrumb>
-                    <div
-                        className="site-layout-background"
-                        style={{
-                            padding: 24,
-                            minHeight: 360,
-                        }}
-                    >
-                        Bill is a cat.
-                    </div>
+
+                <Layout className='content_wrapper'>
+                    <Content>
+                        <Breadcrumb
+                            style={{
+                                margin: '16px 0',
+                            }}
+                        >
+                            <Breadcrumb.Item>User</Breadcrumb.Item>
+                            <Breadcrumb.Item>Bill</Breadcrumb.Item>
+                        </Breadcrumb>
+                        <div
+                            className="site-layout-background"
+                            style={{
+                                padding: 24,
+                                minHeight: 360,
+                            }}
+                        >
+                            Bill is a cat.
+                        </div>
+
+                        
+                    </Content>
 
                     <Footer
-                        style={{
-                            textAlign: 'center',
-                        }}
-                    >
-                        Ant Design ©2018 Created by Ant UED
-                    </Footer>
-                </Content>
+                            style={{
+                                textAlign: 'center',
+                            }}
+                        >
+                            Ant Design ©2018 Created by Ant UED
+                        </Footer>
+                </Layout>
             </Layout>
         </Layout>
     );
@@ -86,7 +91,7 @@ const SiderTrigger = (props) => {
 
     return (
         <div>
-            <Menu items={items} selectable={false}/>
+            <Menu items={items} selectable={false} style={{"width": "100%"}}/>
         </div>
     )
 }
